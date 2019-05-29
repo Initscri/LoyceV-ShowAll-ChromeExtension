@@ -62,4 +62,6 @@ var LoyceVShowAllChromeExtension = {
   }
 }
 
-LoyceVShowAllChromeExtension.init();
+setTimeout(function() {
+	LoyceVShowAllChromeExtension.init();
+}, 500);
