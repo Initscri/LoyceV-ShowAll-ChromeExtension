@@ -22,7 +22,7 @@ var LoyceVShowAllChromeExtension = {
     var cur_url = window.location.href;
 
     // Check if mirrortab is avail, and on topic page.
-    if(mirrortab_b.length > 0 && cur_url.indexOf(url_identifier) !== -1) {
+    if(mirrortab_b != null && cur_url.indexOf(url_identifier) !== -1) {
       // on a BitcoinTalk.org topic page, proceed.
       console.log('Adding Show All Link');
       controller.addShowAllLinkForTopic(mirrortab_b);
@@ -35,12 +35,12 @@ var LoyceVShowAllChromeExtension = {
       // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
       // Adding!
       // Create the link
-			var nodeLink = document.createElement('a');
-			nodeLink.setAttribute('href', 'http://loyce.club/showall/' + smf_topic + '.html');
-			nodeLink.setAttribute('target', '_BLANK');
+      var nodeLink = document.createElement('a');
+      nodeLink.setAttribute('href', 'http://loyce.club/showall/' + smf_topic + '.html');
+      nodeLink.setAttribute('target', '_BLANK');
 
-			// Set the icon of the link.
-			nodeLink.innerHTML = 'Show All';
+      // Set the icon of the link.
+      nodeLink.innerHTML = 'Show All';
       
       // And set the link!
       controller.logIfVerbose('Setting the link!');
