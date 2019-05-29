@@ -17,7 +17,7 @@ var LoyceVShowAllChromeExtension = {
     var controller = this;	  
 	  
     // Get the mirrortab_back container.
-    var mirrortab_b = document.getElementsByClassName("mirrortab_back");
+    var mirrortab_b = document.getElementsByClassName("mirrortab_back")[0];
     var url_identifier = '//bitcointalk.org/index.php?topic='; // This also ensures this only runs on BitcoinTalk, and not similar SMF forums which share the same URL structure.
     var cur_url = window.location.href;
 
