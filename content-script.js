@@ -3,6 +3,20 @@
  * @author Initscri (https://bitcointalk.org/index.php?action=profile;u=186520)
  */
 
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+
 var LoyceVShowAllChromeExtension = {
   logPrefix: 'LoyceV Show All Chrome Extension V1.0',
   verbose: true, // I mean, you should probably leave this on.
@@ -29,10 +43,15 @@ var LoyceVShowAllChromeExtension = {
     }
   },
   addShowAllLinkForTopic(location) {
-    var controller = this;	  
+    var controller = this;
+	 
+    // First, get the topic ID from the url.
+    var queryParams = getQueryParams(document.location.href);
+    var topicId = queryParams['https://bitcointalk.org/index.php?topic'];
+    topicId = topicId.substring(0, topicId.indexOf('.'));
+    topicId = topicId.replace('.', '');
 	  
-    if(location != null && typeof smf_topic != 'undefined') {
-      // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
+    if(location != null) {
       // Adding!
       var nodeSeperator = document.createElement('span');
       nodeSeperator.innerHTML = '  |  ';
