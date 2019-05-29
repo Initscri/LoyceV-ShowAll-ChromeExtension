@@ -14,6 +14,8 @@ var LoyceVShowAllChromeExtension = {
     }
   },
   checkIfOnTopicPage: function() {
+    var controller = this;	  
+	  
     // Get the mirrortab_back container.
     var mirrortab_b = document.getElementsByClassName("mirrortab_back");
     var url_identifier = '//bitcointalk.org/index.php?topic='; // This also ensures this only runs on BitcoinTalk, and not similar SMF forums which share the same URL structure.
@@ -27,6 +29,8 @@ var LoyceVShowAllChromeExtension = {
     }
   },
   addShowAllLinkForTopic(location) {
+    var controller = this;	  
+	  
     if(location.length > 0 && typeof smf_topic != 'undefined') {
       // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
       // Adding!
@@ -53,3 +57,5 @@ var LoyceVShowAllChromeExtension = {
     controller.checkIfOnTopicPage();
   }
 }
+
+LoyceVShowAllChromeExtension.init();
