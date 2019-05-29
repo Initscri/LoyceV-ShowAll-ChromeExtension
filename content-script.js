@@ -27,9 +27,22 @@ var LoyceVShowAllChromeExtension = {
     }
   },
   addShowAllLinkForTopic(location) {
-    if(location.length > 0) {
+    if(location.length > 0 && typeof smf_topic != 'undefined') {
+      // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
       // Adding!
-      // @todo
+      // Create the link
+			var nodeLink = document.createElement('a');
+			nodeLink.setAttribute('href', 'http://loyce.club/showall/' + smf_topic + '.html');
+			nodeLink.setAttribute('target', '_BLANK');
+
+			// Set the icon of the link.
+			nodeLink.innerHTML = 'Show All';
+      
+      // And set the link!
+      controller.logIfVerbose('Setting the link!');
+      location.appendChild(nodeLink);
+      
+      controller.logIfVerbose('All Done!');
     }
   },
   init: function() {
