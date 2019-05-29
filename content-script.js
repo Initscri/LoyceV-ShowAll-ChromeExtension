@@ -34,7 +34,7 @@ var LoyceVShowAllChromeExtension = {
     if(location != null && typeof smf_topic != 'undefined') {
       // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
       // Adding!
-      var Seperator = document.createElement('span');
+      var nodeSeperator = document.createElement('span');
       nodeSeperator.innerHTML = '  |  ';
 	    
       // Create the link
