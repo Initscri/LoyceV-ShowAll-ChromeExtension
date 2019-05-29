@@ -31,9 +31,12 @@ var LoyceVShowAllChromeExtension = {
   addShowAllLinkForTopic(location) {
     var controller = this;	  
 	  
-    if(location.length > 0 && typeof smf_topic != 'undefined') {
+    if(location != null && typeof smf_topic != 'undefined') {
       // TOPIC ID IS AVAILABLE IN THE SMF_TOPIC VARIABLE (DEFAULT TO SMF)
       // Adding!
+      var Seperator = document.createElement('span');
+      nodeSeperator.innerHTML = '  |  ';
+	    
       // Create the link
       var nodeLink = document.createElement('a');
       nodeLink.setAttribute('href', 'http://loyce.club/showall/' + smf_topic + '.html');
@@ -44,6 +47,7 @@ var LoyceVShowAllChromeExtension = {
       
       // And set the link!
       controller.logIfVerbose('Setting the link!');
+      location.appendChild(nodeSeperator);
       location.appendChild(nodeLink);
       
       controller.logIfVerbose('All Done!');
