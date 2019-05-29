@@ -1,0 +1,19 @@
+{
+  "name": "LoyceV ShowAll Chrome Extension",
+  "description": "Creates an easy link in order to use LoyceV's Show All Feature (see https://bitcointalk.org/index.php?topic=5112444.0)
+, see https://github.com/Initscri/LoyceV-ShowAll-ChromeExtension as well",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://bitcointalk.org/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "LoyceV ShowAll Chrome Extension"
+  },
+  "manifest_version": 2
+}
