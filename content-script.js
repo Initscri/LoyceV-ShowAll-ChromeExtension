@@ -51,14 +51,14 @@ var LoyceVShowAllChromeExtension = {
     topicId = topicId.substring(0, topicId.indexOf('.'));
     topicId = topicId.replace('.', '');
 	  
-    if(location != null) {
+    if(location != null && topicId != null) {
       // Adding!
       var nodeSeperator = document.createElement('span');
       nodeSeperator.innerHTML = '  |  ';
 	    
       // Create the link
       var nodeLink = document.createElement('a');
-      nodeLink.setAttribute('href', 'http://loyce.club/showall/' + smf_topic + '.html');
+      nodeLink.setAttribute('href', 'http://loyce.club/showall/' + topicId + '.html');
       nodeLink.setAttribute('target', '_BLANK');
 
       // Set the icon of the link.
